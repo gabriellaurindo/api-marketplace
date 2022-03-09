@@ -8,14 +8,8 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class UserDto {
 
-    private Integer id;
-
-    @Email
     @NotBlank
-    private String name;
-
-    @NotBlank
-    private String password;
+    private String userName;
 
     @Email
     @NotBlank

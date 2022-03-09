@@ -9,22 +9,27 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "USER")
+@Table(name = "VW_USER", schema = "MARKETPLACE_OWNER")
+@SequenceGenerator(name = "SEQ_USER", sequenceName = "SEQ_USER", allocationSize = 1, schema = "MARKETPLACE_OWNER")
 public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long emailId;
+    @Column(name = "ID", updatable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USER")
+    private Long id;
 
     @NotBlank
-    private String name;
+    @Column(name = "user_name", unique = true)
+    private String userName;
 
     @NotBlank
+    @Column(name = "password")
     private String password;
 
     @NotBlank
-    private String gmail;
+    @Column(name = "email")
+    private String email;
 
 }
 
