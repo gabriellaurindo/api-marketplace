@@ -20,7 +20,7 @@ public class UserModel implements Serializable {
     private Long id;
 
     @NotBlank
-    @Column(name = "user_name", unique = true)
+    @Column(name = "username", unique = true)
     private String userName;
 
     @NotBlank
